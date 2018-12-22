@@ -50,8 +50,8 @@ end
   
 while x <= options[:loop] do
   spider.crawl!
-  
-  if spider.aligned?
+
+  if spider.aligned || spider.last_segments.max - spider.last_segments.min == 1
     puts "--- Aligned at segment : #{spider.last_segments[0]} ---"
   else
     puts "--- Unaligned with segments : #{spider.last_segments.join(', ')} ---"
